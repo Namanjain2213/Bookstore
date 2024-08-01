@@ -1,0 +1,242 @@
+[
+    {
+        "id": 1,
+        "name": "Story Book",
+        "title": "The Enchanted Tales",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 2,
+        "name": "Science for Kids",
+        "title": "Discovering Science",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 3,
+        "name": "Math Adventures",
+        "title": "Fun with Numbers",
+        "price": 5.99,
+        "category": "Math Adventures",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 4,
+        "name": "History Legends",
+        "title": "Heroes of the Past",
+        "price": 7.99,
+        "category": "History Legends",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 5,
+        "name": "Animal Kingdom",
+        "title": "Wildlife Wonders",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 6,
+        "name": "Fantasy World",
+        "title": "Magical Realms",
+        "price": 9.99,
+        "category": "Fantasy World",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 7,
+        "name": "Space Explorers",
+        "title": "Journey to the Stars",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 8,
+        "name": "Mystery Mansion",
+        "title": "Secrets Unveiled",
+        "price": 8.99,
+        "category": "Mystery Mansion",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 9,
+        "name": "Adventure Tales",
+        "title": "Exploring the Unknown",
+        "price": 10.99,
+        "category": "Adventure Tales",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 10,
+        "name": "Art and Craft",
+        "title": "Creative Hands",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 11,
+        "name": "Cooking Fun",
+        "title": "Delicious Recipes",
+        "price": 6.99,
+        "category": "Cooking Fun",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 12,
+        "name": "Gardening Guide",
+        "title": "Growing Green",
+        "price": 4.99,
+        "category": "Gardening Guide",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 13,
+        "name": "Travel Diaries",
+        "title": "World Adventures",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 14,
+        "name": "Fitness Routine",
+        "title": "Stay Fit",
+        "price": 7.99,
+        "category": "Fitness Routine",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 15,
+        "name": "Mindfulness",
+        "title": "Peaceful Mind",
+        "price": 8.99,
+        "category": "Mindfulness",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 16,
+        "name": "Photography Basics",
+        "title": "Capturing Moments",
+        "price": 9.99,
+        "category": "Photography Basics",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 17,
+        "name": "Programming 101",
+        "title": "Learn to Code",
+        "price": 5.99,
+        "category": "Programming 101",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 18,
+        "name": "Music Theory",
+        "title": "Understanding Notes",
+        "price": 6.99,
+        "category": "Music Theory",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 19,
+        "name": "Poetry Collection",
+        "title": "Verses of Life",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 20,
+        "name": "Short Stories",
+        "title": "Tales of Wonder",
+        "price": 4.99,
+        "category": "Short Stories",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 21,
+        "name": "Biography of Legends",
+        "title": "Lives of the Great",
+        "price": 10.99,
+        "category": "Biography of Legends",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 22,
+        "name": "Tech Innovations",
+        "title": "Future Tech",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 23,
+        "name": "Business Strategies",
+        "title": "Winning Tactics",
+        "price": 7.99,
+        "category": "Business Strategies",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 24,
+        "name": "Health and Wellness",
+        "title": "Healthy Living",
+        "price": 6.99,
+        "category": "Health and Wellness",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 25,
+        "name": "Mind Puzzles",
+        "title": "Brain Teasers",
+        "price": 4.99,
+        "category": "Mind Puzzles",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 26,
+        "name": "Self Improvement",
+        "title": "Better You",
+        "price": 8.99,
+        "category": "Self Improvement",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 27,
+        "name": "DIY Projects",
+        "title": "Creative Ideas",
+        "price": 0,
+        "category": "Free",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 28,
+        "name": "Home Decor",
+        "title": "Beautiful Spaces",
+        "price": 5.99,
+        "category": "Home Decor",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 29,
+        "name": "Cultural Heritage",
+        "title": "Traditions and Customs",
+        "price": 6.99,
+        "category": "Cultural Heritage",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    },
+    {
+        "id": 30,
+        "name": "Gardening Tips",
+        "title": "Green Thumb Guide",
+        "price": 4.99,
+        "category": "Gardening Tips",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7s7eYKNJ57Z3LLVWAJuCqueQ1L_Yslozjbg&s"
+    }
+]
