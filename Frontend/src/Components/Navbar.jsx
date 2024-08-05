@@ -35,7 +35,7 @@ function Navbar() {
   return (
     <>
       <div className={`w-[100%] fixed top-0 left-0 dark:bg-slate-900 dark:text-white right-0 flex justify-center items-center ${sticky ? "shadow-2xl transition-all ease-in-out" : ""}`}>
-        <div className="navbar bg-base-100 dark:bg-slate-900  w-[90%]">
+        <div className="navbar bg-base-100 dark:bg-slate-900  w-[95%]">
           <div className="navbar-start">
             <div className="dropdown">
               <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -57,7 +57,7 @@ function Navbar() {
                 className="menu menu-sm dropdown-content bg-base-100 dark:bg-slate-900   rounded-box z-[1] mt-3 w-52 p-2 shadow">
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/course'>Course</Link></li>
-                <li><a href='#'>Contact</a></li>
+                <li><Link to='/contact'>Contact</Link></li>
                 <li><a href='#'>About</a></li>
               </ul>
             </div>
@@ -67,7 +67,7 @@ function Navbar() {
             <ul className="menu menu-horizontal px-4 text-xl">
              <li><Link to='/'>Home</Link></li>
               <li><Link to='/course'>Course</Link></li>
-              <li><a href='#'>Contact</a></li>
+              <li><Link to='/contact'>Contact</Link></li>
               <li><a href='#'>About</a></li>
             </ul>
           </div>
