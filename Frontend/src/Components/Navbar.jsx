@@ -84,7 +84,7 @@ function Navbar() {
                 clipRule="evenodd" />
             </svg>
           </label>
-          <div className='ml-16 mr-10'>
+          <div className='ml-16 mr-2'>
             <label className="swap swap-rotate">
               <input type="checkbox" className="theme-controller" value="synthwave" />
               <svg
