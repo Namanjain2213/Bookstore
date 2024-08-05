@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Login from '../Components/Login'
 import { MdCancel } from "react-icons/md";
 function Signup() {
   return (
@@ -30,7 +31,7 @@ function Signup() {
         <div className='m-4 p-2 flex flex-col md:flex-row gap-4 items-center full
                              ' >
                                 <button className='btn bg-black text-white hover:bg-slate-800' >Signup</button>
-                                <p> Not Register ? <Link to='/' className='text-blue-500 font-bold cursor-pointer ' >Login</Link> </p>
+                                <p> Not Register ? <span   onClick={()=>document.getElementById('my_modal_3').showModal()} className='text-blue-500 font-bold cursor-pointer ' >Login</span> <Login /></p>
                             </div>
 
         </form>
