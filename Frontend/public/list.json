@@ -161,10 +161,10 @@
     },
     {
         "id": 21,
-        "name": "Biography of Legends",
+        "name": "Biography ",
         "title": "Lives of the Great",
         "price": 10.99,
-        "category": "Biography of Legends",
+        "category": "Biography of ",
         "image": "https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=612x612&w=0&k=20&c=ZxSsWKNcVpEzrJ3_kxAUuhBCT3P_dfnmJ81JegPD8eE="
     },
     {
@@ -180,7 +180,7 @@
         "name": "Business Strategies",
         "title": "Winning Tactics",
         "price": 7.99,
-        "category": "Business Strategies",
+        "category": "Business ",
         "image": "https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=612x612&w=0&k=20&c=ZxSsWKNcVpEzrJ3_kxAUuhBCT3P_dfnmJ81JegPD8eE="
     },
     {
@@ -188,7 +188,7 @@
         "name": "Health and Wellness",
         "title": "Healthy Living",
         "price": 6.99,
-        "category": "Health and Wellness",
+        "category": "Health ",
         "image": "https://media.istockphoto.com/id/157482029/photo/stack-of-books.jpg?s=612x612&w=0&k=20&c=ZxSsWKNcVpEzrJ3_kxAUuhBCT3P_dfnmJ81JegPD8eE="
     },
     {
