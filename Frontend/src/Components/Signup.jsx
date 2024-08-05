@@ -4,7 +4,7 @@ import { MdCancel } from "react-icons/md";
 function Signup() {
   return (
     <>
-    <div className='w-screen h-screen flex justify-center items-center' >
+    <div className=' dark:bg-slate-900 dark:text-white w-screen h-screen flex justify-center items-center' >
       <div className=' w-[80%] md:w-[50%] border h-fit  ' >
         <div className='flex items-center justify-between ' >
         <h1 className='text-xl font-bold m-4 p-2' >Signup</h1>
