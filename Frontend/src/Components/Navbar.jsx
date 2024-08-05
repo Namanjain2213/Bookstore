@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Link, NavLink} from 'react-router-dom'
 
 function Navbar() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
@@ -54,8 +55,8 @@ function Navbar() {
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 dark:bg-slate-900   rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                <li><a href='/'>Home</a></li>
-                <li><a href='/course'>Course</a></li>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/course'>Course</Link></li>
                 <li><a href='#'>Contact</a></li>
                 <li><a href='#'>About</a></li>
               </ul>
@@ -64,8 +65,8 @@ function Navbar() {
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-4 text-xl">
-              <li><a href='/'>Home</a></li>
-              <li><a href='/course'>Course</a></li>
+             <li><Link to='/'>Home</Link></li>
+              <li><Link to='/course'>Course</Link></li>
               <li><a href='#'>Contact</a></li>
               <li><a href='#'>About</a></li>
             </ul>
