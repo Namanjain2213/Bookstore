@@ -1,6 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const cors = require("cors");
+const bookroute = require("./Route/Book_route");
 
 // Load environment variables from .env file
 dotenv.config();
@@ -10,9 +12,13 @@ const port = process.env.PORT || 4000;
 const url = process.env.MONGODB_URL;
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Connected to MongoDB"))
-    .catch(err => console.log(err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => console.log(err));
+
+app.use(cors()); // Use cors middleware
+
+app.use("/book", bookroute);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });
