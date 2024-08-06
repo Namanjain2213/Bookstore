@@ -84,6 +84,8 @@ function Navbar() {
                 clipRule="evenodd" />
             </svg>
           </label>
+          
+          <div className="navbar-end gap-2">
           <div className='ml-16 mr-2'>
             <label className="swap swap-rotate">
               <input type="checkbox" className="theme-controller" value="synthwave" />
@@ -105,7 +107,6 @@ function Navbar() {
               </svg>
             </label>
           </div>
-          <div className="navbar-end">
             <a className="btn bg-black text-white hover:bg-slate-800" 
             onClick={()=>document.getElementById('my_modal_3').showModal()}
             >Login</a>

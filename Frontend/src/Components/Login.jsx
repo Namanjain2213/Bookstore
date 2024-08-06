@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { ImCancelCircle } from 'react-icons/im';
-
 function Login() {
     const [currState, setCurrState] = useState('Login');
-    const [showLogin, setShowLogin] = useState(true);
+
 
     const {
         register,
