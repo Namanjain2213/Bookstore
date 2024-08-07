@@ -3,8 +3,8 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bookroute = require("./Route/Book_route");
+const userroute = require("./Route/User_route");
 
-// Load environment variables from .env file
 dotenv.config();
 
 const app = express();
@@ -16,9 +16,11 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.log(err));
 
 app.use(cors()); // Use cors middleware
+app.use(express.json()); // Parse JSON bodies
 
 app.use("/book", bookroute);
+app.use("/user", userroute);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Server listening at http://localhost:${port}`);
 });
