@@ -6,18 +6,27 @@ import axios from 'axios';
 
 function Course() {
     const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchBooks = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/book');
-                console.log(response);
-                setBooks(response.data.data); // Assuming your API response is { success: true, data: [...] }
+                const booksData = response.data.data; // Adjust based on your actual API response structure
+
+                // Filter books based on the category if needed
+                const filteredBooks = booksData.filter(book => book.category !== "Free");
+                
+                setBooks(filteredBooks);
             } catch (error) {
-                console.log(error);
-                console.log("Could not fetch the data.");
+                setError("Could not fetch the data.");
+                console.error(error);
+            } finally {
+                setLoading(false);
             }
         };
+
         fetchBooks();
     }, []);
 
@@ -32,10 +41,16 @@ function Course() {
                     <div>
                         <p className='text-xl ml-10 mr-5'>Here is all books for reading, you have to pay some amount</p>
                     </div>
-                    <div className='w-[90%] dark:bg-slate-900 dark:text-white grid md:grid-cols-3 grid-cols-1  '>
-                        {books.map((book, index) => (
-                            <Card key={index} data={book} />
-                        ))}
+                    <div className='w-[90%] dark:bg-slate-900 dark:text-white grid md:grid-cols-3 grid-cols-1'>
+                        {loading ? (
+                            <p>Loading...</p>
+                        ) : error ? (
+                            <p>{error}</p>
+                        ) : (
+                            books.map((book, index) => (
+                                <Card key={index} data={book} />
+                            ))
+                        )}
                     </div>
                 </div>
                 <hr />

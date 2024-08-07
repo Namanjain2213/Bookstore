@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [currState, setCurrState] = useState('Login');
+    const navigate = useNavigate();
 
     const {
         register,
@@ -24,12 +26,22 @@ function Login() {
                 const response = await axios.post("http://localhost:3000/user/signup", userinfo);
                 toast.success("Signup successful");
                 console.log(response.data);
-                localStorage.setItem("Users",JSON.stringify(response.data));
+                document.getElementById("my_modal_3").close();
+                setTimeout(() => {
+                  
+                    window.location.reload();
+                    localStorage.setItem("Users", JSON.stringify(response.data))
+                }, 1000);
             } else {
                 const response = await axios.post("http://localhost:3000/user/login", userinfo);
-                toast.success("Login successful");
-                console.log(response.data);
-                localStorage.setItem("Users",JSON.stringify(response.data));
+                toast.success("Login successful");  
+                document.getElementById("my_modal_3").close();
+                setTimeout(() => {
+                  
+                    window.location.reload();
+                    localStorage.setItem("Users", JSON.stringify(response.data))
+                }, 1000);
+
             }
         } catch (error) {
             console.error(error);
