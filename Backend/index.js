@@ -12,26 +12,27 @@ const app = express();
 const port = process.env.PORT || 4000;
 const url = process.env.MONGODB_URL;
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch(err => console.log(err));
+mongoose.connect(url)
+  .then(() => {
+    console.log("Connected to MongoDB");
+    app.listen(port, () => {
+      console.log(`Server listening at http://localhost:${port}`);
+    });
+  })
+  .catch(err => {
+    console.error("Failed to connect to MongoDB:", err);
+  });
 
 app.use(cors()); // Use cors middleware
 app.use(express.json()); // Parse JSON bodies
 
-
 app.use("/book", bookroute);
 app.use("/user", userroute);
+
 if (process.env.NODE_ENV === "production") {
   const dirpath = path.resolve();
   app.use(express.static("Frontend/dist"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(dirpath, "Frontend", "dist", "index.html"));
-
-  }
-  )
-}
-
-  app.listen(port, () => {
-    console.log(`Server listening at http://localhost:${port}`);
   });
+}
