@@ -25,3 +25,6 @@ app.use("/user", userroute);
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
+app.send('/',(req,res)=>{
+  res.send("hello world");
+})
