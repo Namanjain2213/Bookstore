@@ -15,11 +15,7 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.log(err));
 
-app.use(cors({
-  origin:["https://bookstore-nine-lime.vercel.app/"],
-  methods:["POST","GET"],
-  credentials:true
-})); // Use cors middleware
+app.use(cors()); // Use cors middleware
 app.use(express.json()); // Parse JSON bodies
 
 
