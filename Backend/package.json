@@ -4,7 +4,7 @@
   "description": "mern project",
   "main": "index.js",
   "scripts": {
-    "Start": " node index.js"
+    "start": " nodemon index.js"
   },
   "repository": {
     "type": "git",
