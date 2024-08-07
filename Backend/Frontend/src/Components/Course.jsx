@@ -12,7 +12,7 @@ function Course() {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/book');
+                const response = await axios.get('/book');
                 const booksData = response.data.data; // Adjust based on your actual API response structure
 
                 // Filter books based on the category if needed
