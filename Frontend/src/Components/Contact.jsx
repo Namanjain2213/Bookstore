@@ -5,6 +5,7 @@ import { MdCancel } from "react-icons/md";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Contact() {
     const {
@@ -21,16 +22,17 @@ function Contact() {
             if (response.status === 201) {
                 // Handle successful response
                 console.log('Success:', response.data);
-                alert('Message sent successfully!');
+                toast.success('Message sent successfully!');
             } else {
                 // Handle 
                 console.error('Unexpected response:', response);
-                alert('Failed to send message. Please try again.');
+                toast.error('Failed to send message. Please try again.');
             }
         } catch (error) {
             // Handle network or other errors
             console.error('Error:', error);
-            alert('An error occurred. Please try again.');
+
+            toast.error(`Failed:  ${error.response?.data?.message || error.message}`);
         }
     };
 

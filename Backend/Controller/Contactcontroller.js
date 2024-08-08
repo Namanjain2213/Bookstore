@@ -17,13 +17,12 @@ const contact = async (req, res) => {
             message
         });
 
-        // Save the contact to the database
         await newcontact.save();
 
         return res.status(201).json({
             success: true,
             message: "Data saved successfully",
-            user: {
+            contact: {
                 _id: newcontact._id,
                 fullname: newcontact.fullname,
                 email: newcontact.email,
@@ -32,20 +31,21 @@ const contact = async (req, res) => {
             }
         });
     } catch (error) {
-        // Handle duplicate email error (or any validation error)
-        // if (error.name === 'MongoError' && error.code === 11000) {
-        //     return res.status(400).json({
-        //         success: false,
-        //         message: "Email already exists. Please use a different email address."
-        //     });
-        // }
+        if (error.code === 11000) {
+            // Handle duplicate key error
+            return res.status(400).json({
+                success: false,
+                message: "A contact with this email already exists."
+            });
+        }
 
-        console.error("Error saving contact:", error.message); // Log error message and stack trace
+        console.error('Server Error:', error);
         return res.status(500).json({
             success: false,
-            message: "Something went wrong, could not save the data."
+            message: "Server error: Unable to save contact information."
         });
     }
 };
+
 
 module.exports = { contact };
