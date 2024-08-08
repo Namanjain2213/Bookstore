@@ -1,3 +1,4 @@
+const nodemailer = require('nodemailer');
 const Contact = require("../Model/Contact_model");
 
 const contact = async (req, res) => {
@@ -19,15 +20,44 @@ const contact = async (req, res) => {
 
         await newcontact.save();
 
-        return res.status(201).json({
-            success: true,
-            message: "Data saved successfully",
-            contact: {
-                _id: newcontact._id,
-                fullname: newcontact.fullname,
-                email: newcontact.email,
-                number: newcontact.number,
-                message: newcontact.message
+        // Set up nodemailer transporter
+        const transporter = nodemailer.createTransport({
+            service: 'Gmail', // You can use any email service like Gmail, Yahoo, etc.
+            auth: {
+                user: process.env.EMAIL_USER, // Your email address
+                pass: process.env.EMAIL_PASS  // Your email password or an app-specific password
+            }
+        });
+
+        // Define email options
+        const mailOptions = {
+            from: process.env.EMAIL_USER, // Sender address
+            to: email, // Receiver's email
+            subject: 'Thank you for contacting us!',
+            text: `Dear ${fullname},\n\nThank you for visiting our website. We have received your message and will contact you soon.\n\nBest regards,\nYour Company Name`
+        };
+
+        // Send email
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+                return res.status(500).json({
+                    success: false,
+                    message: "Contact saved, but error sending email"
+                });
+            } else {
+                console.log('Email sent:', info.response);
+                return res.status(201).json({
+                    success: true,
+                    message: "Data saved successfully, and email sent",
+                    contact: {
+                        _id: newcontact._id,
+                        fullname: newcontact.fullname,
+                        email: newcontact.email,
+                        number: newcontact.number,
+                        message: newcontact.message
+                    }
+                });
             }
         });
     } catch (error) {
@@ -47,5 +77,4 @@ const contact = async (req, res) => {
     }
 };
 
-
-module.exports = { contact };
+module.exports = {contact};
