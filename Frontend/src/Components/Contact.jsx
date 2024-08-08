@@ -23,7 +23,7 @@ function Contact() {
                 console.log('Success:', response.data);
                 alert('Message sent successfully!');
             } else {
-                // Handle unexpected status codes
+                // Handle 
                 console.error('Unexpected response:', response);
                 alert('Failed to send message. Please try again.');
             }

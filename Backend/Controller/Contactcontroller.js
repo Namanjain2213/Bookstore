@@ -33,12 +33,12 @@ const contact = async (req, res) => {
         });
     } catch (error) {
         // Handle duplicate email error (or any validation error)
-        if (error.name === 'MongoError' && error.code === 11000) {
-            return res.status(400).json({
-                success: false,
-                message: "Email already exists. Please use a different email address."
-            });
-        }
+        // if (error.name === 'MongoError' && error.code === 11000) {
+        //     return res.status(400).json({
+        //         success: false,
+        //         message: "Email already exists. Please use a different email address."
+        //     });
+        // }
 
         console.error("Error saving contact:", error.message); // Log error message and stack trace
         return res.status(500).json({
