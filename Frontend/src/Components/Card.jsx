@@ -25,7 +25,7 @@ function Card(props) {
                             {data.title}
                         </p>
                         <p class=" font-sans w-full  text-base md:text-lg md:font-bold leading-normal mt-3 dark:text-white text-black  ">
-                           category: <span className='bg-error px-4 py-1 rounded-full text-white font-bold ' > {data.category} </span> 
+                           Category: <span className='bg-error px-4 py-1 rounded-full text-white font-bold ' > {data.category} </span> 
                         </p>
                     </div>
                     

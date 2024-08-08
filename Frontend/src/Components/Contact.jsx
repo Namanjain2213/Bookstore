@@ -24,7 +24,7 @@ function Contact() {
                         </div>
                         <form onSubmit={handleSubmit((data) => console.log(data))} >
                             <div className='m-2 p-2 ' >
-                                <label className='font-semibold ' for="fullname">Fullname:</label><br />
+                                <label className='font-semibold ' for="fullname">Full Name:</label><br />
                                 <input type="text" placeholder='Enter your name' name='fullname' {...register('fullname', { required: true })} className='outline-none border bg-transparent text-black py-1 mt-2 w-full rounded-lg px-3 ' id='fullname' required />
                             </div>
                             <div className='m-2 p-2 ' >
