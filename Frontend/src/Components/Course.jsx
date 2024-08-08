@@ -12,7 +12,7 @@ function Course() {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await axios.get('/book');
+                const response = await axios.get('https://bookstore-backend-3wat.onrender.com/book');
                 const booksData = response.data.data; // Adjust based on your actual API response structure
 
                 // Filter books based on the category if needed

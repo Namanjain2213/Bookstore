@@ -23,7 +23,7 @@ function Login() {
 
         try {
             if (currState === "Sign Up") {
-                const response = await axios.post("/user/signup", userinfo);
+                const response = await axios.post("https://bookstore-backend-3wat.onrender.com/user/signup", userinfo);
                 toast.success("Signup successful");
                 console.log(response.data);
                 document.getElementById("my_modal_3").close();
@@ -33,7 +33,7 @@ function Login() {
                     localStorage.setItem("Users", JSON.stringify(response.data))
                 }, 1000);
             } else {
-                const response = await axios.post("/user/login", userinfo);
+                const response = await axios.post("https://bookstore-backend-3wat.onrender.com/user/login", userinfo);
                 toast.success("Login successful");  
                 document.getElementById("my_modal_3").close();
                 setTimeout(() => {

@@ -8,7 +8,7 @@ function Freebook() {
     useEffect(() => {
         const fetchBooks = async () => {
             try {
-                const response = await axios.get('/book');
+                const response = await axios.get('https://bookstore-backend-3wat.onrender.com/book');
                 console.log(response);
                 setBooks(response.data.data); // Assuming your API response is { success: true, data: [...] }
             } catch (error) {
