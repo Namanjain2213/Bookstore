@@ -5,12 +5,9 @@ const contact = async (req, res) => {
     try {
         const { fullname, email, number, message } = req.body;
 
-        // Check if all required fields are provided
         if (!fullname || !email || !number || !message) {
             return res.status(400).json({ message: "Please fill in all fields" });
         }
-
-        // Create a new contact
         const newcontact = new Contact({
             fullname,
             email,
@@ -20,24 +17,22 @@ const contact = async (req, res) => {
 
         await newcontact.save();
 
-        // Set up nodemailer transporter
         const transporter = nodemailer.createTransport({
-            service: 'Gmail', // You can use any email service like Gmail, Yahoo, etc.
+            service: 'Gmail', 
             auth: {
-                user: process.env.EMAIL_USER, // Your email address
-                pass: process.env.EMAIL_PASS  // Your email password or an app-specific password
+                user: process.env.EMAIL_USER, 
+                pass: process.env.EMAIL_PASS  
             }
         });
 
-        // Define email options
         const mailOptions = {
-            from: process.env.EMAIL_USER, // Sender address
-            to: email, // Receiver's email
+            from: process.env.EMAIL_USER, 
+            to: email, 
             subject: 'Thank you for contacting us!',
             text: `Dear ${fullname},\n\nThank you for visiting our website. We have received your message and will contact you soon.\n\nBest regards,\nBook Bank`
         };
 
-        // Send email
+
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.error('Error sending email:', error);
@@ -62,7 +57,6 @@ const contact = async (req, res) => {
         });
     } catch (error) {
         if (error.code === 11000) {
-            // Handle duplicate key error
             return res.status(400).json({
                 success: false,
                 message: "A contact with this email already exists."
