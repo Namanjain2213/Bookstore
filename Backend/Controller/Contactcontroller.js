@@ -34,7 +34,7 @@ const contact = async (req, res) => {
             from: process.env.EMAIL_USER, // Sender address
             to: email, // Receiver's email
             subject: 'Thank you for contacting us!',
-            text: `Dear ${fullname},\n\nThank you for visiting our website. We have received your message and will contact you soon.\n\nBest regards,\nYour Company Name`
+            text: `Dear ${fullname},\n\nThank you for visiting our website. We have received your message and will contact you soon.\n\nBest regards,\nBook Bank`
         };
 
         // Send email
