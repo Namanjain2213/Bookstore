@@ -5,7 +5,7 @@ function Card(props) {
     return (
         <>
             <div className='' >
-                <div class=" flex ml-2  gap-10 shadow-2xl flex-col   transition-all duration-200 ease-in-out dark:bg-slate-900 dark:text-white rounded-xl bg-white mt-4  text-gray-700 ">
+                <div class=" flex ml-2  gap-10 shadow-2xl flex-col dark:border-white  transition-all duration-200 ease-in-out dark:bg-slate-900 dark:text-white rounded-xl bg-white mt-4  text-gray-700 ">
                     <div class=" mx-4 mt-4 h-full overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
                         <img
                             src={data.image}
