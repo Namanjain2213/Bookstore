@@ -38,7 +38,7 @@ function Navbar() {
 
   return (
     <>
-      <div className={`w-[100%] dark:border-yellow-100 border fixed top-0 left-0 dark:bg-slate-900 dark:text-white right-0 flex justify-center items-center ${sticky ? "shadow-2xl dark:shadow-lg dark:shadow-yellow-100 transition-all ease-in-out" : ""}`}>
+      <div  className={`w-[100%] dark:border-yellow-100 border fixed top-0 left-0 dark:bg-slate-900 dark:text-white right-0 flex justify-center items-center ${sticky ? "shadow-2xl dark:shadow-lg dark:shadow-yellow-100 transition-all ease-in-out" : ""}`}>
         <div className="navbar bg-base-100 dark:bg-slate-900  w-[95%]">
           <div className="navbar-start">
             <div className="dropdown">
@@ -62,7 +62,7 @@ function Navbar() {
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/course'>Course</Link></li>
                 <li><Link to='/contact'>Contact</Link></li>
-                <li><a href='#'>About</a></li>
+                <li><a href='#about'>About</a></li>
               </ul>
             </div>
             <a className="text-2xl italic font-bold">Book<span className='text-cyan-400 text-3xl text-pretty italic' >Bank</span> </a>
@@ -72,11 +72,11 @@ function Navbar() {
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/course'>Course</Link></li>
               <li><Link to='/contact'>Contact</Link></li>
-              <li><a href='#'>About</a></li>
+              <li><a href='#about'>About</a></li>
             </ul>
           </div>
           <label className="hidden md:flex border p-2 items-center gap-2">
-            <input type="text" className="outline-none dark:bg-slate-900" placeholder="Search" />
+            <input type="text" className="outline-none dark:bg-transparent" placeholder="Search" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -117,7 +117,7 @@ function Navbar() {
               ) : (
                 <>
                   <a
-                    className="btn bg-black text-white hover:bg-slate-800"
+                    className="btn bg-black border-2 border-rose-500 text-white hover:bg-slate-800"
                     onClick={() => document.getElementById('my_modal_3').showModal()}
                   >
                     Login

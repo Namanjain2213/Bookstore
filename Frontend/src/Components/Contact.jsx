@@ -41,7 +41,7 @@ function Contact() {
             <div>
                 <Navbar/>
                 <div className='dark:bg-slate-900 dark:text-white w-screen flex justify-center items-center'>
-                    <div className='w-[80%] md:w-[50%] mt-20 mb-16 border'>
+                    <div className='w-[80%] md:w-[50%] mt-24 mb-16 border'>
                         <div className='flex items-center justify-between'>
                             <h1 className='text-xl font-bold m-2 p-2'>Contact Form</h1>
                             <Link to='/'>
@@ -66,7 +66,7 @@ function Contact() {
                                 <textarea name="message" placeholder='Enter your message' id="message" {...register('message', { required: true })} className='outline-none border bg-transparent py-1 mt-2 w-full dark:text-white text-black rounded-lg px-3' rows={6}></textarea>
                             </div>
                             <div className='m-2 p-2 flex flex-col md:flex-row gap-4 items-center'>
-                                <button type="submit" className='btn bg-black text-white hover:bg-slate-800'>Submit</button>
+                                <button type="submit" className='btn bg-black border-2 border-rose-500 text-white hover:bg-slate-800'>Submit</button>
                             </div>
                         </form>
                     </div>

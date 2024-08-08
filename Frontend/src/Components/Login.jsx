@@ -103,7 +103,7 @@ function Login() {
                                 </label>
                             </div>
 
-                            <button className="w-full bg-black text-white rounded-[5px] shadow-xl py-1 mt-2 cursor-pointer hover:bg-slate-800 hover:text-white transition-all duration-500">
+                            <button className=" btn w-full bg-black border-2 border-rose-500  text-white rounded-[5px]  py-1 mt-2 cursor-pointer hover:bg-slate-800 hover:text-white transition-all duration-500">
                                 {currState === "Sign Up" ? "Create Account" : "Login"}
                             </button>
 

@@ -14,25 +14,25 @@ function Banner() {
                     </div>
 
                     <div className='mt-6 mr-2 '>
-                        <label className="border p-2 rounded-xl flex items-center gap-2 ">
+                        <label className="border p-2 rounded-xl  flex items-center gap-2 ">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 16 16"
-                                fill="currentColor"
-                                className="h-4 w-4 opacity-70">
+                                fill="currentColor" 
+                                className="h-4 w-4  opacity-70">
                                 <path
                                     d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
                                 <path
                                     d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                             </svg>
-                            <input type="text" className="outline-none dark:bg-slate-900 " placeholder="Email" />
+                            <input type="text" className="outline-none dark:bg-transparent " placeholder="Email" />
                         </label>
                     </div>
                     <div className='mt-6' >
-                    <button className="btn bg-black text-white hover:bg-slate-900  ">Learn more</button>
+                    <button className="btn bg-black border-2 border-rose-500 text-white hover:bg-slate-900  ">Learn more</button>
                     </div>
                 </div>
-                <div className='right w-[90%] md:w-[50%] mt-10 md:ml-10 dark:bg-slate-900'>
+                <div className='right w-[90%] md:w-[50%] mt-10 md:ml-10 dark:bg-transparent'>
                     <img src={banner} alt="" className=' bg-transparent  ' />
                 </div>
             </div>
