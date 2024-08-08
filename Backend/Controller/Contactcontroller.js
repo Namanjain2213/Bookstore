@@ -64,9 +64,11 @@ const contact = async (req, res) => {
         }
 
         console.error('Server Error:', error);
+        console.log(error)
+        
         return res.status(500).json({
             success: false,
-            message: "Server error: Unable to save contact information."
+            message: "Server error: message must consist at least 5 words."
         });
     }
 };
