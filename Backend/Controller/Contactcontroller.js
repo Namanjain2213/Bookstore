@@ -61,13 +61,13 @@ const contact = async (req, res) => {
             }
         });
     } catch (error) {
-        // if (error.code === 11000) {
-        //     // Handle duplicate key error
-        //     return res.status(400).json({
-        //         success: false,
-        //         message: "A contact with this email already exists."
-        //     });
-        // }
+        if (error.code === 11000) {
+            // Handle duplicate key error
+            return res.status(400).json({
+                success: false,
+                message: "A contact with this email already exists."
+            });
+        }
 
         console.error('Server Error:', error);
         return res.status(500).json({
