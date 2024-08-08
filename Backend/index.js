@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bookroute = require("./Route/Book_route");
 const userroute = require("./Route/User_route");
-const path = require("path");
 
 dotenv.config();
 
@@ -29,10 +28,3 @@ app.use(express.json()); // Parse JSON bodies
 app.use("/book", bookroute);
 app.use("/user", userroute);
 
-// if (process.env.NODE_ENV === "production") {
-//   const dirpath = path.resolve();
-//   app.use(express.static("Frontend/dist"));
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(dirpath, "Frontend", "dist", "index.html"));
-//   });
-// }
