@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
 const User = require('../Model/Usermodel'); // Adjust the path based on your project structure
 const express = require('express');
