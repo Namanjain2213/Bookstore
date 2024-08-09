@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../Model/Usermodel'); // Adjust the path based on your project structure
 const express = require('express');
 const router = express.Router();
+require("dotenv").config();
 
 router.post('/reset-password/:token', async (req, res) => {
     try {

@@ -4,6 +4,7 @@ const User = require('../Model/Usermodel'); // Adjust the path based on your pro
 const nodemailer = require('nodemailer');
 
 const router = express.Router();
+require("dotenv").config();
 
 router.post('/forgot-password', async (req, res) => {
     try {
