@@ -2,17 +2,13 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import Forgot from './Forgot'; // Adjust the import path based on your project structure
 
 function Login() {
     const [currState, setCurrState] = useState('Login');
-    const navigate = useNavigate();
+    const [showForgotPassword, setShowForgotPassword] = useState(false); // State to manage forgot password modal
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data) => {
         const userinfo = {
@@ -28,29 +24,32 @@ function Login() {
                 console.log(response.data);
                 document.getElementById("my_modal_3").close();
                 setTimeout(() => {
-                  
                     window.location.reload();
-                    localStorage.setItem("Users", JSON.stringify(response.data))
+                    localStorage.setItem("Users", JSON.stringify(response.data));
                 }, 1000);
-            } else {
+            } else if (currState === "Login") {
                 const response = await axios.post("https://bookstore-backend-3wat.onrender.com/user/login", userinfo);
-                toast.success("Login successful");  
+                toast.success("Login successful");
                 document.getElementById("my_modal_3").close();
                 setTimeout(() => {
-                  
                     window.location.reload();
-                    localStorage.setItem("Users", JSON.stringify(response.data))
+                    localStorage.setItem("Users", JSON.stringify(response.data));
                 }, 1000);
-
             }
         } catch (error) {
             console.error(error);
-            toast.error(`Failed:  ${error.response?.data?.message || error.message}`);
+            toast.error(`Failed: ${error.response?.data?.message || error.message}`);
         }
+    };
+
+    const handleForgotPasswordClick = () => {
+        setShowForgotPassword(true);
+        document.getElementById("my_modal_3").close();
     };
 
     return (
         <div className='dark:bg-slate-900 dark:text-white'>
+            {/* Main Login/Signup Form */}
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box dark:bg-slate-900 dark:text-white">
                     <form method="dialog">
@@ -69,7 +68,7 @@ function Login() {
                                         <input
                                             type="text"
                                             placeholder="Enter Your Name"
-                                            className="w-full border-2 outline-none bg-transparent s rounded-[5px] p-1"
+                                            className="w-full border-2 outline-none bg-transparent rounded-[5px] p-1"
                                             {...register('name', { required: "Name is required" })}
                                         />
                                         {errors.name && <span className="text-red-500">{errors.name.message}</span>}
@@ -96,44 +95,57 @@ function Login() {
                                     <input
                                         type="password"
                                         placeholder="Enter Your Password"
-                                        className="w-full border-2 outline-none rounded-[5px] p-1 bg-transparent "
+                                        className="w-full border-2 outline-none rounded-[5px] p-1 bg-transparent"
                                         {...register('password', { required: "Password is required" })}
                                     />
                                     {errors.password && <span className="text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
 
-                            <button className=" btn w-full bg-black border-2 border-rose-500  text-white rounded-[5px]  py-1 mt-2 cursor-pointer hover:bg-slate-800 hover:text-white transition-all duration-500">
+                            <button
+                                type="submit"
+                                className="btn w-full bg-black border-2 border-rose-500 text-white rounded-[5px] py-1 mt-2 cursor-pointer hover:bg-slate-800 hover:text-white transition-all duration-500"
+                            >
                                 {currState === "Sign Up" ? "Create Account" : "Login"}
                             </button>
-
-                            <div className="login-popup-condition flex items-center gap-2">
-                                <input className="cursor-pointer" type="checkbox" required />
-                                <p>By continuing, I agree to the terms of use & privacy policy.</p>
+                            <div className='flex gap-10 mt-2'>
+                                {currState === "Login" ? (
+                                    <p>Create a new account?
+                                        <span
+                                            onClick={() => setCurrState("Sign Up")}
+                                            className="text-blue-500 ml-2 cursor-pointer"
+                                        >
+                                            Click here
+                                        </span>
+                                    </p>
+                                ) : (
+                                    <p>Already have an account?
+                                        <span
+                                            onClick={() => setCurrState("Login")}
+                                            className="text-blue-500 ml-2 cursor-pointer"
+                                        >
+                                            Click here
+                                        </span>
+                                    </p>
+                                )}
+                                <p
+                                    className="text-blue-500 cursor-pointer"
+                                    onClick={handleForgotPasswordClick}
+                                >
+                                    Forgot Password?
+                                </p>
                             </div>
-                            {currState === "Login" ? (
-                                <p>Create a new account?
-                                    <span
-                                        onClick={() => setCurrState("Sign Up")}
-                                        className="text-blue-500 ml-2 cursor-pointer"
-                                    >
-                                        Click here
-                                    </span>
-                                </p>
-                            ) : (
-                                <p>Already have an account?
-                                    <span
-                                        onClick={() => setCurrState("Login")}
-                                        className="text-blue-500 ml-2 cursor-pointer"
-                                    >
-                                        Click here
-                                    </span>
-                                </p>
-                            )}
                         </form>
                     </div>
                 </div>
             </dialog>
+
+            {/* Forgot Password Section */}
+            {showForgotPassword && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <Forgot setShowForgotPassword={setShowForgotPassword} />
+                </div>
+            )}
         </div>
     );
 }
