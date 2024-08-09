@@ -2,14 +2,16 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { MdOutlineCancel } from "react-icons/md";
+import { MdOutlineCancel } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 function Forgot({ setShowForgotPassword }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleForgotPassword = async (data) => {
         try {
-            const response = await axios.post("https://bookstore-backend-3wat.onrender.com/forget", { email: data.email });
+            // Make a POST request to the forgot password endpoint
+            const response = await axios.post("https://bookstore-backend-3wat.onrender.com/forgot-password", { email: data.email });
             toast.success("Reset link sent. Check your email.");
             setShowForgotPassword(false); // Close the forgot password section
         } catch (error) {
@@ -20,14 +22,11 @@ function Forgot({ setShowForgotPassword }) {
 
     return (
         <div className="p-6 bg-white rounded-lg dark:bg-slate-900 shadow-lg">
-            <div className='flex justify-between items-center mb-4'>
-                <h2 className="text-lg font-bold">Forgot Password</h2>
-                <button
-                    onClick={() => setShowForgotPassword(false)}
-                    className='text-xl'
-                >
-                    <MdOutlineCancel />
-                </button>
+            <div className='flex justify-center gap-8'>
+                <h2 className="text-lg font-bold mb-4">Forgot Password</h2>
+                <Link to='#' onClick={() => setShowForgotPassword(false)}> 
+                    <MdOutlineCancel className='text-xl mt-1' />
+                </Link>
             </div>
             <form onSubmit={handleSubmit(handleForgotPassword)} className="flex flex-col gap-3">
                 <label>

@@ -8,6 +8,8 @@ const router = express.Router();
 router.post('/forgot-password', async (req, res) => {
     try {
         const { email } = req.body;
+
+        // Find the user with the provided email
         const user = await User.findOne({ email });
 
         if (!user) {
@@ -17,9 +19,9 @@ router.post('/forgot-password', async (req, res) => {
         // Create a reset token
         const resetToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-        // Send reset email
+        // Configure the email transport
         const transporter = nodemailer.createTransport({
-            service: 'Gmail',
+            service: 'Gmail', // Use a different service or configure OAuth2 for Gmail
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
@@ -28,6 +30,7 @@ router.post('/forgot-password', async (req, res) => {
 
         const resetUrl = `https://bookbank-nine-lime.vercel.app/reset-password/${resetToken}`;
 
+        // Define email options
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: user.email,
@@ -35,6 +38,7 @@ router.post('/forgot-password', async (req, res) => {
             text: `You requested a password reset. Please click on the link below to reset your password:\n\n${resetUrl}\n\nIf you did not request this, please ignore this email.`,
         };
 
+        // Send the email
         await transporter.sendMail(mailOptions);
 
         return res.status(200).json({ message: 'Password reset link sent to your email.' });
