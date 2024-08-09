@@ -108,7 +108,7 @@ function Login() {
                             >
                                 {currState === "Sign Up" ? "Create Account" : "Login"}
                             </button>
-                            <div className='flex gap-10 mt-2'>
+                            <div className='flex flex-col md:flex-row md:gap-10 mt-2'>
                                 {currState === "Login" ? (
                                     <p>Create a new account?
                                         <span
