@@ -6,7 +6,7 @@ const bookroute = require("./Route/Book_route");
 const userroute = require("./Route/User_route");
 const contactroute = require("./Route/Contact_route");
 const forgetroute = require('./Route/Forget-password');
-const resetroute = require('./Route/Reset-password');
+const verifyroute = require('./Route/Reset-password');
 
 dotenv.config();
 
@@ -35,7 +35,7 @@ app.use("/book", bookroute);
 app.use("/user", userroute);
 app.use("/contact", contactroute);
 app.use('/forget', forgetroute);
-app.use('/reset', resetroute);
+app.use('/reset', verifyroute);
 
 // Handle 404 errors
 app.use((req, res, next) => {

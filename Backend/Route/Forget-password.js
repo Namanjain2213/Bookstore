@@ -51,3 +51,5 @@ router.post('/forgot-password', async (req, res) => {
         return res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 });
+
+module.exports = router;
