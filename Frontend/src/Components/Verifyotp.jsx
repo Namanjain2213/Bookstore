@@ -9,7 +9,7 @@ function VerifyOtp({ email, setVerifyOtp }) {
 
     const handleVerifyOtp = async (data) => {
         try {
-            const response = await axios.post("https://bookstore-backend-3wat.onrender.com/reset", {
+            const response = await axios.post("https://bookstore-backend-3wat.onrender.com/reset/verify-otp", {
                 email: email,
                 otp: data.otp,
                 newPassword: data.newPassword

@@ -14,7 +14,8 @@ function Forgot({ setShowForgotPassword }) {
     const handleForgotPassword = async (data) => {
         try {
             // Make a POST request to the forgot password endpoint
-            const response = await axios.post("https://bookstore-backend-3wat.onrender.com/forget", { email: data.email });
+            console.log(data);
+            const response = await axios.post("https://bookstore-backend-3wat.onrender.com/forget/forgot-password", { email: data.email });
             toast.success("Reset link sent. Check your email.");
             setEmail(data.email); // Set email state
             setVerifyOtp(true); // Show OTP form
