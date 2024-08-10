@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { MdOutlineCancel } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import VerifyOtp from './Verifyotp';
 
 function Forgot({ setShowForgotPassword }) {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [verifyOtp, setVerifyOtp] = useState(false);
+    const [email, setEmail] = useState('');
 
     const handleForgotPassword = async (data) => {
         try {
             // Make a POST request to the forgot password endpoint
             const response = await axios.post("https://bookstore-backend-3wat.onrender.com/forget", { email: data.email });
             toast.success("Reset link sent. Check your email.");
-            setShowForgotPassword(false); // Close the forgot password section
+            setEmail(data.email); // Set email state
+            setVerifyOtp(true); // Show OTP form
         } catch (error) {
             console.error(error);
             toast.error(`Failed: ${error.response?.data?.message || error.message}`);
@@ -48,10 +52,16 @@ function Forgot({ setShowForgotPassword }) {
                 <button
                     type="submit"
                     className="btn w-full bg-black border-2 border-rose-500 text-white rounded-[5px] py-2 mt-2 cursor-pointer hover:bg-slate-800 hover:text-white transition-all duration-500"
+                    onClick={()=>{setVerifyOtp(true)}}
                 >
                     Send Reset Link
                 </button>
             </form>
+            {verifyOtp && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <VerifyOtp email={email} setVerifyOtp={setVerifyOtp} />
+                </div>
+            )}
         </div>
     );
 }

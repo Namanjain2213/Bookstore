@@ -1,7 +1,7 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const User = require('../Model/Usermodel'); // Adjust the path based on your project structure
 const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 const router = express.Router();
 require("dotenv").config();
@@ -17,8 +17,13 @@ router.post('/forgot-password', async (req, res) => {
             return res.status(404).json({ message: 'User with this email does not exist.' });
         }
 
-        // Create a reset token
-        const resetToken = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        // Generate a random OTP
+        const otp = crypto.randomInt(100000, 999999).toString();
+
+        // Store the OTP and its expiration time in the user's record
+        user.resetOtp = otp;
+        user.otpExpires = Date.now() + 3600000; // OTP expires in 1 hour
+        await user.save();
 
         // Configure the email transport
         const transporter = nodemailer.createTransport({
@@ -29,24 +34,20 @@ router.post('/forgot-password', async (req, res) => {
             },
         });
 
-        const resetUrl = `https://bookbank-nine-lime.vercel.app/reset-password/${resetToken}`;
-
         // Define email options
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: user.email,
-            subject: 'Password Reset Request',
-            text: `You requested a password reset. Please click on the link below to reset your password:\n\n${resetUrl}\n\nIf you did not request this, please ignore this email.`,
+            subject: 'Password Reset OTP',
+            text: `Your OTP for resetting your password is: ${otp}\n\nThis OTP is valid for 1 hour. If you did not request this, please ignore this email.`,
         };
 
         // Send the email
         await transporter.sendMail(mailOptions);
 
-        return res.status(200).json({ message: 'Password reset link sent to your email.' });
+        return res.status(200).json({ message: 'OTP sent to your email.' });
     } catch (error) {
         console.error('Error in forgot password:', error);
         return res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 });
-
-module.exports = router;
