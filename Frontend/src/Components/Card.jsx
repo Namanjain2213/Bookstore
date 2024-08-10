@@ -9,7 +9,7 @@ function Card(props) {
                     <div class=" mx-4 mt-4 h-full overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
                         <img
                             src={data.image}
-                            className="h-[250px] w-full object-cover bg-transparent "
+                            className="h-[350px] w-full object-cover bg-transparent "
                         />
                     </div>
                     <div className="p-6">
