@@ -35,6 +35,7 @@ function VerifyOtp({ email, setVerifyOtp }) {
                     <input
                         type="text"
                         placeholder="Enter OTP"
+                        required
                         className="w-full border-2 outline-none bg-transparent rounded-[5px] p-2"
                         {...register('otp', { required: "OTP is required" })}
                     />
@@ -44,6 +45,7 @@ function VerifyOtp({ email, setVerifyOtp }) {
                     New Password<sup className="text-red-500">*</sup><br />
                     <input
                         type="password"
+                        required
                         placeholder="Enter New Password"
                         className="w-full border-2 outline-none bg-transparent rounded-[5px] p-2"
                         {...register('newPassword', { required: "New password is required" })}

@@ -68,6 +68,7 @@ function Login() {
                                         <input
                                             type="text"
                                             placeholder="Enter Your Name"
+                                            required
                                             className="w-full border-2 outline-none bg-transparent rounded-[5px] p-1"
                                             {...register('name', { required: "Name is required" })}
                                         />
@@ -79,6 +80,7 @@ function Login() {
                                     <input
                                         type="email"
                                         placeholder="Enter Your Email"
+                                        required
                                         className="w-full border-2 bg-transparent outline-none rounded-[5px] p-1"
                                         {...register('email', {
                                             required: "Email is required",
@@ -94,6 +96,7 @@ function Login() {
                                     Password<sup className="text-red-500">*</sup><br />
                                     <input
                                         type="password"
+                                        required
                                         placeholder="Enter Your Password"
                                         className="w-full border-2 outline-none rounded-[5px] p-1 bg-transparent"
                                         {...register('password', { required: "Password is required" })}

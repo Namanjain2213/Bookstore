@@ -44,6 +44,7 @@ function Forgot({ setShowForgotPassword }) {
                     <input
                         type="email"
                         placeholder="Enter Your Email"
+                        required
                         className="w-full border-2 outline-none bg-transparent rounded-[5px] p-2"
                         {...register('email', {
                             required: "Email is required",
