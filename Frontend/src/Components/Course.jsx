@@ -36,7 +36,7 @@ function Course() {
                 <Navbar />
                 <div className='w-[90%] m-auto flex flex-col dark:bg-slate-900 dark:text-white justify-center items-center gap-2 mt-14 mb-10'>
                     <div>
-                        <h1 className='text-2xl dark:text-cyan-400 text-purple-800 font-bold mt-4'>Warm Welcome to here</h1>
+                        <h1 className='text-2xl dark:text-cyan-400 text-purple-800 font-bold mt-6'>Warm Welcome to here</h1>
                     </div>
                     <div>
                         <p className='text-xl ml-10 mr-5'>Here is all books for reading, you have to pay some amount</p>
