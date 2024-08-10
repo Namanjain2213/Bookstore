@@ -11,6 +11,11 @@ function Forgot({ setShowForgotPassword }) {
     const [verifyOtp, setVerifyOtp] = useState(false);
     const [email, setEmail] = useState('');
 
+    function setfun(){
+        setShowForgotPassword(false);
+        setShowForgotPassword(false);
+    }
+
     const handleForgotPassword = async (data) => {
         try {
             // Make a POST request to the forgot password endpoint
@@ -53,7 +58,7 @@ function Forgot({ setShowForgotPassword }) {
                 <button
                     type="submit"
                     className="btn w-full bg-black border-2 border-rose-500 text-white rounded-[5px] py-2 mt-2 cursor-pointer hover:bg-slate-800 hover:text-white transition-all duration-500"
-                    onClick={()=>{setVerifyOtp(true)}}
+                    onClick={()=>{setfun}}
                 >
                     Send Reset Link
                 </button>
