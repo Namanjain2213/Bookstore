@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const redis = require('redis');
 const passport = require('./config/passport');
 const bookroute = require("./Route/Book_route");
 const userroute = require("./Route/User_route");
@@ -17,9 +19,17 @@ const app = express();
 const port = process.env.PORT || 4000;
 const url = process.env.MONGODB_URL;
 
-// Configure express-session middleware
+// Create a Redis client
+const redisClient = redis.createClient();
+
+redisClient.on('error', (err) => {
+  console.log('Redis error:', err);
+});
+
+// Configure express-session middleware with Redis
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'your-session-secret', // Make sure SESSION_SECRET is in your .env file
+  store: new RedisStore({ client: redisClient }),
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false } // Set to true if using HTTPS
