@@ -20,7 +20,11 @@ const port = process.env.PORT || 4000;
 const url = process.env.MONGODB_URL;
 
 // Create a Redis client
-const redisClient = Redis.createClient();
+const redisClient = Redis.createClient({
+  legacyMode: true
+});
+
+redisClient.connect().catch(console.error);
 
 redisClient.on('error', (err) => {
   console.log('Redis error:', err);
@@ -30,7 +34,7 @@ redisClient.on('error', (err) => {
 const RedisStore = connectRedis(session);
 
 app.use(session({
-  store: new RedisStore({ client: redisClient }), // Updated usage
+  store: new RedisStore({ client: redisClient }),
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
