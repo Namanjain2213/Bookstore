@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const session = require('express-session');
-const RedisStore = require('connect-redis')(session);
+const RedisStore = require('connect-redis'); // Correct import
 const redis = require('redis');
 const passport = require('./config/passport');
 const bookroute = require("./Route/Book_route");
@@ -28,7 +28,7 @@ redisClient.on('error', (err) => {
 
 // Configure express-session middleware with Redis
 app.use(session({
-  store: new RedisStore({ client: redisClient }),
+  store: new RedisStore({ client: redisClient }), // Updated usage
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
