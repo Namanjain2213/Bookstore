@@ -116,13 +116,13 @@ function Login() {
                             >
                                 {currState === "Sign Up" ? "Create Account" : "Login"}
                             </button>
-                            <div>
+                            {/* <div>
                                 <button onClick={handleGoogleLogin} 
                                 className="btn w-full bg-black border-2 justify-center border-rose-500 text-white rounded-[5px] py-1 mt-2 cursor-pointer hover:bg-slate-800 hover:text-white transition-all duration-500"
                                 >
                                   <FcGoogle className='text-xl ' />  Login with Google
                                 </button>
-                            </div>
+                            </div> */}
                             <div className='flex flex-col md:flex-row md:gap-10 mt-2'>
                                 {currState === "Login" ? (
                                     <p>Create a new account?
