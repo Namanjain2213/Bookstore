@@ -7,6 +7,8 @@ const userroute = require("./Route/User_route");
 const contactroute = require("./Route/Contact_route");
 const forgetroute = require('./Route/Forget-password');
 const verifyroute = require('./Route/Reset-password');
+const passport = require('./config/passport');
+const authRoutes = require('./Route/Auth');
 
 dotenv.config();
 
@@ -36,6 +38,9 @@ app.use("/user", userroute);
 app.use("/contact", contactroute);
 app.use('/forget', forgetroute);
 app.use('/reset', verifyroute);
+
+app.use(authRoutes);
+
 
 // Handle 404 errors
 app.use((req, res, next) => {
