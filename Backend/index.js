@@ -2,48 +2,17 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const session = require('express-session');
-const Redis = require('redis');
-const connectRedis = require('connect-redis');
-const passport = require('./config/passport');
 const bookroute = require("./Route/Book_route");
 const userroute = require("./Route/User_route");
 const contactroute = require("./Route/Contact_route");
 const forgetroute = require('./Route/Forget-password');
 const verifyroute = require('./Route/Reset-password');
-const authRoutes = require('./Route/Auth');
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
 const url = process.env.MONGODB_URL;
-
-// Create a Redis client
-const redisClient = Redis.createClient({
-  legacyMode: true
-});
-
-redisClient.connect().catch(console.error);
-
-redisClient.on('error', (err) => {
-  console.log('Redis error:', err);
-});
-
-// Configure express-session middleware with Redis
-const RedisStore = connectRedis(session);
-
-app.use(session({
-  store: new RedisStore({ client: redisClient }),
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false } // Set to true if using HTTPS
-}));
-
-// Initialize passport and session handling
-app.use(passport.initialize());
-app.use(passport.session());
 
 mongoose.connect(url)
   .then(() => {
@@ -67,7 +36,6 @@ app.use("/user", userroute);
 app.use("/contact", contactroute);
 app.use('/forget', forgetroute);
 app.use('/reset', verifyroute);
-app.use(authRoutes);
 
 // Handle 404 errors
 app.use((req, res, next) => {
